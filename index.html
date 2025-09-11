@@ -1,107 +1,170 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jihad - Personal Website</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমাদের প্রেমের গল্প</title>
+
+    <style>
+        body {
+            background-color: #f8f0e3;
+            font-family: 'Arial', sans-serif;
+            color: #4a4a4a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            text-align: center;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        h1 {
+            color: #d1495b;
+            font-size: 2.5em;
+        }
+
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            min-height: 80px;
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+
+        button {
+            background-color: #d1495b;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c03d4c;
+        }
+
+        /* যখন টেক্সট লুকানো থাকবে */
+        .hidden {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        /* শেষ ধাপের বাটনের স্টাইল */
+        #yes-button {
+            background-color: #4CAF50;
+        }
+        #yes-button:hover {
+            background-color: #45a049;
+        }
+        #no-button {
+            background-color: #f44336;
+        }
+        #no-button:hover {
+            background-color: #da190b;
+        }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
+<body>
 
-  <!-- Header -->
-  <header class="bg-white shadow p-6">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Jihad 🇧🇩</h1>
-      <nav class="space-x-4">
-        <a href="#about" class="text-blue-600 hover:underline">About</a>
-        <a href="#skills" class="text-blue-600 hover:underline">Education</a>
-        <a href="#contact" class="text-blue-600 hover:underline">Contact</a>
-      </nav>
+    <div class="container">
+        <h1>আমার প্রিয় [তার নাম],</h1>
+        <p>আমি তোমাকে কিছু বলতে চাই, কিন্তু ধাপে ধাপে। দয়া করে আমার সাথে থেকো।</p>
+        <button id="nextButton">যাত্রা শুরু করি</button>
     </div>
-  </header>
 
- 
-  <!-- Intro -->
-<section class="text-center py-20 bg-blue-100">
-  <img src="myphoto.jpg" alt="Your Name" class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg" />
-  <h2 class="text-4xl font-bold mb-2">Hi, I'm Jihad </h2>
-  <p class="text-xl">Welcome to my personal website!</p>
-</section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            const nextButton = document.getElementById('nextButton');
+            const paragraph = container.querySelector('p');
+            
+            const steps = [
+                "আমার ভালোবাসা শুধু একটি অনুভূতি নয়, এটি আমাদের ভাগ করে নেওয়া নীরব মুহূর্তগুলোতেও আছে...",
+                "কঠিন দিনগুলোতেও তুমি যেভাবে আমাকে হাসাও, তার মধ্যেও আছে...",
+                "তুমি আমাকে একজন আরও ভালো মানুষ হতে অনুপ্রাণিত করো...",
+                "শুধু তোমার সাথে থাকার সাধারণ আনন্দেই আছে...",
+                "যে ভবিষ্যত তোমাকে ছাড়া আমি কল্পনাও করতে পারি না, তার মধ্যেও আছে...",
+                "তাহলে, আমার তোমাকে শুধু একটি শেষ কথা বলার আছে...",
+                "তুমি কি আমাকে বিয়ে করবে?"
+            ];
+            
+            let currentStep = -1;
 
-  <!-- About Section -->
-  <section id="about" class="py-16 px-4 max-w-4xl mx-auto">
-    <h3 class="text-3xl font-semibold mb-6">About Me</h3>
-    <p class="text-lg leading-relaxed">
-      I'm JJ, a student in Bangladesh. I'm currently living in Bangladesh. I've just completed my College. Now I'm preparing for University in Bangladesh.
-    </p>
-  </section>
-  <!-- Photo Slider Section -->
-<section class="py-16 px-4 max-w-5xl mx-auto">
-  <h3 class="text-3xl font-semibold mb-6 text-center">My Photo Gallery</h3>
-  <div class="relative overflow-hidden">
-    <div id="slider" class="flex transition-transform duration-500">
-      <img src="photo1.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo2.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo3.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo4.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo5.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo6.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo7.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo8.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-    </div>
-  </div>
+            nextButton.addEventListener('click', () => {
+                currentStep++;
+                
+                if (currentStep < steps.length) {
+                    paragraph.classList.add('hidden');
+                    
+                    setTimeout(() => {
+                        paragraph.textContent = steps[currentStep];
+                        paragraph.classList.remove('hidden');
+                    }, 500);
 
-  <!-- Buttons -->
-  <div class="flex justify-center mt-4 space-x-4">
-    <button onclick="slide(-1)" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Prev</button>
-    <button onclick="slide(1)" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Next</button>
-  </div>
-</section>
+                    if (currentStep === 0) {
+                        nextButton.textContent = "পরবর্তী";
+                    }
 
-  <!-- Skills Section -->
-  <section id="skills" class="bg-white py-16 px-4 max-w-4xl mx-auto">
-    <h3 class="text-3xl font-semibold mb-6">My Education</h3>
-    <ul class="list-disc list-inside space-y-2 text-lg">
-      <li>JSC(2019)</li>
-      <li>SSC(2022)</li>
-      <li>HSC(2024)</li>
-    </ul>
-  </section>
-  <!-- Palestine Section -->
-<section class="bg-gray-100 py-16 px-4 max-w-4xl mx-auto text-center">
-  <img src="Palestine.jpg" alt="Palestine" class="mx-auto rounded-lg shadow-lg mb-4 w-full max-w-md" />
-  <p class="text-2xl font-bold text-red-600">Free Palestine</p>
-</section>
-<!-- Contact Section -->
-<section id="contact" class="py-16 px-4 max-w-4xl mx-auto text-center">
-  <h3 class="text-3xl font-semibold mb-6">Contact Me</h3>
-  <p class="text-lg mb-4">You can reach me at:</p>
-  <p class="text-lg font-semibold mb-2">jihadjunaed1234@gmail.com</p>
-  <p class="text-lg font-semibold mb-6">Phone: +8801690294579</p> <!-- Replace with your actual number -->
+                    if (currentStep === steps.length - 1) {
+                        nextButton.style.display = 'none';
+                        
+                        // শেষ ধাপের জন্য ফর্ম এবং বাটন তৈরি করা
+                        const form = document.createElement('form');
+                        form.id = 'proposal-form';
+                        form.action = 'https://formspree.io/f/xzzaolaz';
+                        form.method = 'POST';
 
-  <div class="space-x-6">
-    <a href="https://www.facebook.com/share/1DpkVHebDk/" target="_blank" class="text-blue-600 hover:underline font-semibold">Facebook</a>
-    <a href="https://youtube.com/@mrtabbycatt?si=8CBYBQXcvtpYNvsS" target="_blank" class="text-red-600 hover:underline font-semibold">YouTube</a>
-    <a href="https://www.instagram.com/jihad_junaed?igsh=MWExNDU0M3BvazFnZw==" target="_blank" class="text-pink-600 hover:underline font-semibold">Instagram</a>
-  </div>
-</section>
+                        const hiddenInput = document.createElement('input');
+                        hiddenInput.type = 'hidden';
+                        hiddenInput.name = 'response';
+                        hiddenInput.id = 'response-input';
 
-  <!-- Footer -->
-  <footer class="bg-gray-200 py-6 text-center text-sm">
-    &copy; 2025 Jihad. All rights reserved.
-  </footer>
+                        const yesButton = document.createElement('button');
+                        yesButton.type = 'submit';
+                        yesButton.id = 'yes-button';
+                        yesButton.textContent = 'হ্যাঁ!';
 
-<script>
-  let currentIndex = 0;
-  const slider = document.getElementById('slider');
-  const totalImages = 8;
-  const imageWidth = 270; // Adjust based on your layout
+                        const noButton = document.createElement('button');
+                        noButton.type = 'submit';
+                        noButton.id = 'no-button';
+                        noButton.textContent = 'না';
 
-  function slide(direction) {
-    currentIndex += direction;
-    if (currentIndex < 0) currentIndex = totalImages - 1;
-    if (currentIndex >= totalImages) currentIndex = 0;
-    slider.style.transform = `translateX(-${currentIndex * imageWidth}px)`;
-  }
-</script></body>
+                        form.appendChild(hiddenInput);
+                        form.appendChild(yesButton);
+                        form.appendChild(noButton);
+                        container.appendChild(form);
+
+                        // বাটনগুলোতে ইভেন্ট লিসেনার যোগ করা
+                        yesButton.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            hiddenInput.value = 'হ্যাঁ';
+                            form.submit();
+                            container.innerHTML = "<h1>অসাধারণ! আমি তোমাকে অনেক ভালোবাসি! ❤️</h1>";
+                        });
+
+                        noButton.addEventListener('click', (event) => {
+                            event.preventDefault();
+                            hiddenInput.value = 'না';
+                            form.submit();
+                            container.innerHTML = "<h1>ঠিক আছে, আমি জানি এটা একটা বড় সিদ্ধান্ত। আমি সবসময় তোমার পাশে থাকবো।</h1>";
+                        });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
 </html>
