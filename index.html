@@ -1,107 +1,146 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jihad - Personal Website</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Jihad — Personal Website</title>
+  <style>
+    :root{
+      --primary:#2563eb;
+      --secondary:#10b981;
+      --accent:#f59e0b;
+      --bg:#f3f4f6;
+      --card:#ffffff;
+      --muted:#6b7280;
+    }
+    *{box-sizing:border-box}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; margin:0; background:var(--bg); color:#111; transition: background 0.3s;}
+    .container{max-width:1000px;margin:0 auto;padding:20px}
+    header{background:var(--primary);padding:18px;border-bottom:1px solid #e5e7eb;color:white; animation: fadeInDown 1s; display:flex; justify-content:space-between; align-items:center;}
+    header h1{margin:0; font-size:20px}
+    nav a{margin-left:14px;color:white;text-decoration:none; transition: color 0.3s}
+    nav a:hover{color:var(--accent)}
+    .intro{display:flex;align-items:center;gap:20px;background:linear-gradient(135deg, #f3f4f6, #c7d2fe);padding:36px;border-radius:12px;margin:20px 0; animation: fadeIn 1s;}
+    .intro img{width:120px;height:120px;object-fit:cover;border-radius:0;border:4px solid #fff;box-shadow:0 6px 18px rgba(0,0,0,0.15); transition: transform 0.3s;}
+    .intro img:hover{transform: scale(1.05) rotate(2deg);}
+    h2{margin:0;font-size:28px;color:var(--primary)}
+    section.card{background:var(--card);padding:20px;border-radius:12px;margin:18px 0;border:1px solid #eaeef5; box-shadow:0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s;}
+    section.card:hover{transform: translateY(-5px)}
+    .grid{display:grid;gap:16px}
+    .grid.two{grid-template-columns:1fr 1fr}
+    ul{padding-left:1.2rem}
+    footer{text-align:center;padding:18px;color:var(--muted);font-size:14px; background:var(--secondary); color:white; animation: fadeInUp 1s;}
+    .carousel{position:relative;overflow:hidden;border-radius:12px}
+    .slides{display:flex;transition:transform .35s ease}
+    .slide{min-width:100%;flex-shrink:0;position:relative;padding-top:56.25%} /* 16:9 Aspect Ratio */
+    .slide img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:8px}
+    .controls{display:flex;justify-content:center;gap:8px;margin-top:12px}
+    .btn{padding:8px 12px;border-radius:6px;border:0;background:var(--primary);color:#fff;cursor:pointer; transition: background 0.3s}
+    .btn:hover{background:var(--accent)}
+    .thumbs{display:flex;gap:8px;overflow:auto;margin-top:10px}
+    .thumbs img{width:80px;height:45px;object-fit:cover;border-radius:6px;cursor:pointer;border:2px solid transparent; transition: transform 0.3s, border-color 0.3s}
+    .thumbs img.active, .thumbs img:hover{border-color:var(--primary); transform: scale(1.05)}
+    .social{display:flex;gap:12px;justify-content:center;margin-top:12px}
+    .social a{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;text-decoration:none;border:1px solid #e6eefb; transition: background 0.3s, color 0.3s}
+    .social a:hover{background:var(--accent);color:white}
+    @keyframes fadeIn {from{opacity:0}to{opacity:1}}
+    @keyframes fadeInDown {from{opacity:0; transform:translateY(-20px)} to{opacity:1; transform:translateY(0)}}
+    @keyframes fadeInUp {from{opacity:0; transform:translateY(20px)} to{opacity:1; transform:translateY(0)}}
+    @media (max-width:700px){.grid.two{grid-template-columns:1fr}.intro{flex-direction:column;align-items:center}}
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans">
-
-  <!-- Header -->
-  <header class="bg-white shadow p-6">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Jihad 🇧🇩</h1>
-      <nav class="space-x-4">
-        <a href="#about" class="text-blue-600 hover:underline">About</a>
-        <a href="#skills" class="text-blue-600 hover:underline">Education</a>
-        <a href="#contact" class="text-blue-600 hover:underline">Contact</a>
-      </nav>
-    </div>
+<body>
+  <header>
+    <h1>Jihad —❤️</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
- 
-  <!-- Intro -->
-<section class="text-center py-20 bg-blue-100">
-  <img src="myphoto.jpg" alt="Your Name" class="w-40 h-40 rounded-full mx-auto mb-4 shadow-lg" />
-  <h2 class="text-4xl font-bold mb-2">Hi, I'm Jihad </h2>
-  <p class="text-xl">Welcome to my personal website!</p>
-</section>
+  <main class="container">
+    <section class="intro">
+      <img src="myphoto1.jpg" alt="Jihad photo" />
+      <div>
+        <h2>Hi, I'm Jihad</h2>
+        <p style="margin:0;color:var(--muted)">Student • Muslim • Studying in University • Based in Bangladesh  </p>
+      </div>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="py-16 px-4 max-w-4xl mx-auto">
-    <h3 class="text-3xl font-semibold mb-6">About Me</h3>
-    <p class="text-lg leading-relaxed">
-      I'm JJ, a student in Bangladesh. I'm currently living in Bangladesh. I've just completed my College. Now I'm preparing for University in Bangladesh.
-    </p>
-  </section>
-  <!-- Photo Slider Section -->
-<section class="py-16 px-4 max-w-5xl mx-auto">
-  <h3 class="text-3xl font-semibold mb-6 text-center">My Photo Gallery</h3>
-  <div class="relative overflow-hidden">
-    <div id="slider" class="flex transition-transform duration-500">
-      <img src="photo1.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo2.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo3.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo4.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo5.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo6.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo7.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-      <img src="photo8.jpg" class="w-full max-w-sm mx-2 rounded shadow" />
-    </div>
-  </div>
+    <section id="about" class="card">
+      <h3 style="margin-top:0">About Me</h3>
+      <p>I'm JJ, recently finished college (HSC 2024). I live in Bangladesh and now Studying in University. I like learning web development, making short AI videos, and working on personal projects.</p>
+    </section>
 
-  <!-- Buttons -->
-  <div class="flex justify-center mt-4 space-x-4">
-    <button onclick="slide(-1)" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Prev</button>
-    <button onclick="slide(1)" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">Next</button>
-  </div>
-</section>
+    <section id="education" class="card grid two">
+      <div>
+        <h3 style="margin-top:0">Education</h3>
+        <ul>
+          <li>JSC - 2019 (Sreenagar Pilot School and College)</li>
+          <li>SSC - 2022 (Sreenagar Pilot School and College)</li>
+          <li>HSC - 2024 (Sreenagar Government College)</li>
+          <li>Dhaka Central University</li>
+        </ul>
+      </div>
+      <div>
+        <h3 style="margin-top:0">Quick Info</h3>
+        <p style="margin:0;color:var(--muted)">I'm a student living in Mawa, Munshiganj, with my hometown in Madaripur. I have a passion for exploring new information, technology, and AI, always eager to learn and experiment with innovative ideas.</p>
+      </div>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="bg-white py-16 px-4 max-w-4xl mx-auto">
-    <h3 class="text-3xl font-semibold mb-6">My Education</h3>
-    <ul class="list-disc list-inside space-y-2 text-lg">
-      <li>JSC(2019)</li>
-      <li>SSC(2022)</li>
-      <li>HSC(2024)</li>
-    </ul>
-  </section>
-  <!-- Palestine Section -->
-<section class="bg-gray-100 py-16 px-4 max-w-4xl mx-auto text-center">
-  <img src="Palestine.jpg" alt="Palestine" class="mx-auto rounded-lg shadow-lg mb-4 w-full max-w-md" />
-  <p class="text-2xl font-bold text-red-600">Free Palestine</p>
-</section>
-<!-- Contact Section -->
-<section id="contact" class="py-16 px-4 max-w-4xl mx-auto text-center">
-  <h3 class="text-3xl font-semibold mb-6">Contact Me</h3>
-  <p class="text-lg mb-4">You can reach me at:</p>
-  <p class="text-lg font-semibold mb-2">jihadjunaed1234@gmail.com</p>
-  <p class="text-lg font-semibold mb-6">Phone: ‪+8801690294579‬</p> <!-- Replace with your actual number -->
+    <section id="gallery" class="card">
+      <h3 style="margin-top:0">My Photo Gallery</h3>
+      <div class="carousel" aria-label="Photo gallery">
+        <div class="slides" id="slides">
+          <div class="slide"><img src="photo1.jpg" alt="photo 1" loading="lazy"></div>
+          <div class="slide"><img src="photo2.jpg" alt="photo 2" loading="lazy"></div>
+          <div class="slide"><img src="photo3.jpg" alt="photo 3" loading="lazy"></div>
+          <div class="slide"><img src="photo4.jpg" alt="photo 4" loading="lazy"></div>
+          <div class="slide"><img src="photo5.jpg" alt="photo 5" loading="lazy"></div>
+        </div>
+      </div>
+      <div class="controls">
+        <button class="btn" id="prev">Prev</button>
+        <button class="btn" id="next">Next</button>
+      </div>
+    </section>
 
-  <div class="space-x-6">
-    <a href="https://www.facebook.com/share/1DpkVHebDk/" target="_blank" class="text-blue-600 hover:underline font-semibold">Facebook</a>
-    <a href="https://youtube.com/@mrtabbycatt?si=8CBYBQXcvtpYNvsS" target="_blank" class="text-red-600 hover:underline font-semibold">YouTube</a>
-    <a href="https://www.instagram.com/jihad_junaed?igsh=MWExNDU0M3BvazFnZw==" target="_blank" class="text-pink-600 hover:underline font-semibold">Instagram</a>
-  </div>
-</section>
+    <section class="card" style="text-align:center">
+      <img src="Palestine.jpg" alt="Free Palestine" style="max-width:320px;width:100%;border-radius:8px;display:block;margin:0 auto 12px">
+      <p style="margin:0;font-weight:700;color:#b91c1c">Free Palestine</p>
+    </section>
 
-  <!-- Footer -->
-  <footer class="bg-gray-200 py-6 text-center text-sm">
-    &copy; 2025 Jihad. All rights reserved.
+    <section id="contact" class="card" style="text-align:center">
+      <h3 style="margin-top:0">Contact</h3>
+      <p style="margin:0 0 8px">Email: <strong>jihadjunaed1234@gmail.com</strong></p>
+      <p style="margin:0 0 8px"><b>Phone :</b> <strong>+8801690294579</strong></p>
+      <div class="social">
+        <a href="https://www.facebook.com/share/1DpkVHebDk/" target="_blank">Facebook</a>
+        <a href="https://youtube.com/@mrtabbycatt?si=8CBYBQXcvtpYNvsS" target="_blank">YouTube</a>
+        <a href="https://www.instagram.com/jihad_junaed?igsh=MWExNDU0M3BvazFnZw==" target="_blank">Instagram</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">&copy; 2025 Jihad. All rights reserved.</div>
   </footer>
 
-<script>
-  let currentIndex = 0;
-  const slider = document.getElementById('slider');
-  const totalImages = 8;
-  const imageWidth = 270; // Adjust based on your layout
-
-  function slide(direction) {
-    currentIndex += direction;
-    if (currentIndex < 0) currentIndex = totalImages - 1;
-    if (currentIndex >= totalImages) currentIndex = 0;
-    slider.style.transform = translateX(-${currentIndex * imageWidth}px);
-  }
-</script></body>
+  <script>
+    const slides = document.getElementById('slides');
+    const slideCount = slides.children.length;
+    let currentIndex = 0;
+    document.getElementById('next').addEventListener('click', ()=>{
+      currentIndex = (currentIndex + 1) % slideCount;
+      slides.style.transform = `translateX(${-currentIndex*100}%)`;
+    });
+    document.getElementById('prev').addEventListener('click', ()=>{
+      currentIndex = (currentIndex - 1 + slideCount) % slideCount;
+      slides.style.transform = `translateX(${-currentIndex*100}%)`;
+    });
+  </script>
+</body>
 </html>
+
